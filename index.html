@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – พีลพัทร์ แก้วคง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #1D9E75;
+      --teal-dark: #0F6E56;
+      --teal-light: #E1F5EE;
+      --orange: #D85A30;
+      --bg: #F5F4F0;
+      --surface: #FFFFFF;
+      --text: #1a1a1a;
+      --muted: #666660;
+      --border: #D8D6CE;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(245, 244, 240, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--teal-dark);
+      letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 14px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 2rem 3rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(29,158,117,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(216,90,48,0.08) 0%, transparent 60%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 720px; width: 100%;
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-light); color: var(--teal-dark);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px;
+      width: fit-content;
+      animation: fadeUp 0.6s ease both;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+    h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--text);
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 span { color: var(--teal); }
+
+    .hero-desc {
+      font-size: 17px; color: var(--muted); line-height: 1.8;
+      max-width: 560px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Sarabun', sans-serif; font-size: 15px; font-weight: 600;
+      padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 4px 20px rgba(29,158,117,0.35);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(29,158,117,0.45); }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+    .btn-icon { font-size: 18px; line-height: 1; }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.8rem; font-weight: 700; color: var(--teal-dark);
+      line-height: 1;
+    }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    .divider-v {
+      width: 1px; background: var(--border); align-self: stretch;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600;
+      margin-bottom: 2.5rem; line-height: 1.3;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .about-text p { font-size: 16px; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+
+    .info-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .info-list li {
+      display: flex; gap: 12px;
+      font-size: 14px;
+      padding: 12px 16px;
+      background: var(--bg); border-radius: 8px;
+    }
+    .info-label { color: var(--muted); min-width: 80px; }
+    .info-val { color: var(--text); font-weight: 500; }
+
+    /* ── PDF VIEWER ── */
+    #portfolio { background: var(--bg); }
+    .pdf-card {
+      background: var(--surface); border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+    .pdf-header {
+      background: var(--teal-dark); color: #fff;
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .pdf-title { font-weight: 600; font-size: 15px; }
+    .pdf-sub { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+    .pdf-actions { display: flex; gap: 8px; }
+    .pdf-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      padding: 8px 16px; border-radius: 6px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .pdf-btn:hover { opacity: 0.85; }
+    .pdf-btn-primary { background: var(--orange); color: #fff; }
+    .pdf-btn-outline { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    .pdf-embed {
+      width: 100%; height: 80vh; min-height: 600px;
+      display: block; border: none;
+    }
+    .pdf-fallback {
+      display: none;
+      padding: 3rem; text-align: center;
+    }
+    .pdf-fallback p { color: var(--muted); margin-bottom: 1rem; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .skill-card {
+      background: var(--bg); border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: var(--teal-light); transform: translateY(-3px); }
+    .skill-icon { font-size: 24px; margin-bottom: 10px; }
+    .skill-name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .skill-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal-dark); color: rgba(255,255,255,0.8);
+      text-align: center; padding: 2rem;
+      font-size: 13px;
+    }
+    footer strong { color: #fff; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      h1 { font-size: 2rem; }
+      .stats { gap: 1rem; }
+      .divider-v { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">PHEELPHATTHR.GITHUB.IO</span>
+  <div class="nav-links">
+    <a href="#about">เกี่ยวกับ</a>
+    <a href="#portfolio">พอร์ตโฟลิโอ</a>
+    <a href="#skills">ทักษะ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      เอกสารประกอบการสัมภาษณ์
+    </div>
+    <h1>พีลพัทร์<br/><span>แก้วคง</span></h1>
+    <p class="hero-desc">
+      ครุศาสตร์อุตสาหกรรมบัณฑิต ไฟฟ้า-อิเล็กทรอนิกส์และโทรคมนาคม จบการศึกษาด้วยเกรดเฉลี่ย <strong>3.91</strong><br/>
+      มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย วิทยาเขตสงขลา
+    </p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn btn-primary">
+        <span class="btn-icon">📄</span>
+        ดูพอร์ตโฟลิโอ
+      </a>
+      <a href="portfolio.pdf" target="_blank" download class="btn btn-outline">
+        <span class="btn-icon">⬇</span>
+        ดาวน์โหลด PDF
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-num">3.91</div>
+        <div class="stat-label">เกรดเฉลี่ย</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="stat-item">
+        <div class="stat-num">31</div>
+        <div class="stat-label">หน้าในพอร์ตโฟลิโอ</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="stat-item">
+        <div class="stat-num">อันดับ 1</div>
+        <div class="stat-label">เกียรตินิยม</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">เกี่ยวกับฉัน</p>
+    <h2 class="section-title">ประวัติโดยย่อ</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          พอร์ตโฟลิโอเล่มนี้จัดทำขึ้นเพื่อนำเสนอข้อมูลประวัติและผลงานอย่างครบถ้วนและเป็นระบบ
+          เพื่อรวบรวมเอกสารหลักฐาน ผลการเรียน ความสามารถ และประสบการณ์ต่าง ๆ ที่ผ่านมาตลอดช่วงการศึกษา
+        </p>
+        <p>
+          สำเร็จการศึกษาด้วยเกียรตินิยมอันดับหนึ่ง เกรดเฉลี่ย 3.91
+          สาขาวิชาเอกอิเล็กทรอนิกส์และโทรคมนาคม คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี
+        </p>
+        <p>
+          มีประสบการณ์เป็นประธานชมรมผู้ประกอบการฐานเทคโนโลยี
+          และเคยคว้ารางวัลชนะเลิศจากการแข่งขันพัฒนาผลิตภัณฑ์ต้นแบบสู่เชิงพาณิชย์
+        </p>
+      </div>
+      <ul class="info-list">
+        <li><span class="info-label">ชื่อ</span><span class="info-val">นายพีลพัทร์ แก้วคง</span></li>
+        <li><span class="info-label">สาขา</span><span class="info-val">อิเล็กทรอนิกส์และโทรคมนาคม</span></li>
+        <li><span class="info-label">มหาวิทยาลัย</span><span class="info-val">ราชมงคลศรีวิชัย สงขลา</span></li>
+        <li><span class="info-label">เกรดเฉลี่ย</span><span class="info-val">3.91 (เกียรตินิยมอันดับ 1)</span></li>
+        <li><span class="info-label">ปีจบ</span><span class="info-val">2568</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO PDF -->
+<section id="portfolio">
+  <div class="section-inner">
+    <p class="section-label">เอกสารประกอบ</p>
+    <h2 class="section-title">พอร์ตโฟลิโอฉบับเต็ม</h2>
+    <div class="pdf-card">
+      <div class="pdf-header">
+        <div>
+          <div class="pdf-title">Portfolio – พีลพัทร์ แก้วคง</div>
+          <div class="pdf-sub">เอกสารประกอบการสัมภาษณ์ · 31 หน้า</div>
+        </div>
+        <div class="pdf-actions">
+          <a href="portfolio.pdf" target="_blank" class="pdf-btn pdf-btn-outline">เปิดในแท็บใหม่ ↗</a>
+          <a href="portfolio.pdf" download class="pdf-btn pdf-btn-primary">⬇ ดาวน์โหลด</a>
+        </div>
+      </div>
+      <iframe
+        class="pdf-embed"
+        src="portfolio.pdf"
+        title="พอร์ตโฟลิโอ พีลพัทร์ แก้วคง"
+        onerror="this.style.display='none'; document.getElementById('pdf-fallback').style.display='block';">
+      </iframe>
+      <div class="pdf-fallback" id="pdf-fallback">
+        <p>ไม่สามารถแสดง PDF ได้ในเบราว์เซอร์นี้</p>
+        <a href="portfolio.pdf" target="_blank" class="btn btn-primary">เปิดไฟล์ PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">ความสามารถ</p>
+    <h2 class="section-title">ทักษะและความเชี่ยวชาญ</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">อิเล็กทรอนิกส์</div>
+        <div class="skill-desc">ออกแบบและพัฒนาวงจรอิเล็กทรอนิกส์ ระบบฝังตัว (Embedded Systems)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📡</div>
+        <div class="skill-name">โทรคมนาคม</div>
+        <div class="skill-desc">ระบบสื่อสารไร้สาย เครือข่ายโทรคมนาคม และสัญญาณดิจิทัล</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <div class="skill-name">การเขียนโปรแกรม</div>
+        <div class="skill-desc">พัฒนาซอฟต์แวร์ ควบคุม Microcontroller</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🏆</div>
+        <div class="skill-name">ผู้นำชมรมสโมสรนักศึกษา</div>
+        <div class="skill-desc">ประธานชมรม ผู้ประกอบการฐานเทคโนโลยี บริหารทีมและโครงการ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2568 <strong>PEELAPHAT KAEWKONG</strong>ELECTRONIC</p>
+</footer>
+
+</body>
+</html>
