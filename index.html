@@ -113,8 +113,9 @@
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: scale(0.98); }
 
-  ELECTRONIC background: var(--teal); color: #fff;
-      box-shadow:ELECTRONICx rgba(29,158,117,0.35);
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 4px 20px rgba(29,158,117,0.35);
     }
     .btn-primary:hover { box-shadow: 0 8px 28px rgba(29,158,117,0.45); }
 
@@ -234,6 +235,28 @@
     }
     footer strong { color: #fff; }
 
+    /* ── PROFILE PHOTO ── */
+    .hero-layout {
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-photo {
+      width: 144px; height: 192px;
+      object-fit: cover; object-position: center top;
+      border-radius: 10px;
+      border: 3px solid var(--teal-light);
+      box-shadow: 0 8px 32px rgba(29,158,117,0.18);
+      display: block;
+    }
+    .hero-photo-label {
+      text-align: center; margin-top: 8px;
+      font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
+    }
+    .hero-text { flex: 1; min-width: 260px; }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -247,6 +270,8 @@
       h1 { font-size: 2rem; }
       .stats { gap: 1rem; }
       .divider-v { display: none; }
+      .hero-layout { flex-direction: column; gap: 1.5rem; }
+      .hero-photo { width: 120px; height: 160px; }
     }
   </style>
 </head>
@@ -266,39 +291,47 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-tag">
-      <span class="dot"></span>
-      เอกสารประกอบการพิจารณาเข้าทำงาน/ผลงาน
-    </div>
-    <h1>พีลพัทร์<br/><span>แก้วคง</span></h1>
-    <p class="hero-desc">
-      ครุศาสตร์อุตสาหกรรมบัณฑิต ไฟฟ้า-อิเล็กทรอนิกส์และโทรคมนาคม จบการศึกษาด้วยเกรดเฉลี่ย <strong>3.91 (เกียรตินิยมอันดับ 1)</strong><br/>
-      มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย วิทยาเขตสงขลา
-    </p>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn btn-primary">
-        <span class="btn-icon">📄</span>
-        ดู Portfolio
-      </a>
-      <a href="portfolio.pdf" target="_blank" download class="btn btn-outline">
-        <span class="btn-icon">⬇</span>
-        ดาวน์โหลด PDF
-      </a>
-    </div>
-    <div class="stats">
-      <div class="stat-item">
-        <div class="stat-num">3.91</div>
-        <div class="stat-label">เกรดเฉลี่ย</div>
+    <div class="hero-layout">
+      <div class="hero-photo-wrap">
+        <img src="P.jpg" alt="พีลพัทร์ แก้วคง" class="hero-photo" />
+        <p class="hero-photo-label">ชุดครุยวิทยฐานะ</p>
       </div>
-      <div class="divider-v"></div>
-      <div class="stat-item">
-        <div class="stat-num">31</div>
-        <div class="stat-label">หน้าใน Portfolio</div>
-      </div>
-      <div class="divider-v"></div>
-      <div class="stat-item">
-        <div class="stat-num">อันดับ 1</div>
-        <div class="stat-label">เกียรตินิยม</div>
+      <div class="hero-text">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          เอกสารประกอบการสัมภาษณ์
+        </div>
+        <h1 style="margin-top:1rem;">พีลพัทร์<br/><span>แก้วคง</span></h1>
+        <p class="hero-desc">
+          ครุศาสตร์อุตสาหกรรมบัณฑิต ไฟฟ้า-อิเล็กทรอนิกส์และโทรคมนาคม จบการศึกษาด้วยเกรดเฉลี่ย <strong>3.91 (เกียรตินิยมอันดับ 1)</strong><br/>
+          มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย วิทยาเขตสงขลา
+        </p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">
+            <span class="btn-icon">📄</span>
+            ดู Portfolio
+          </a>
+          <a href="portfolio.pdf" target="_blank" download class="btn btn-outline">
+            <span class="btn-icon">⬇</span>
+            ดาวน์โหลด PDF
+          </a>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-num">3.91</div>
+            <div class="stat-label">เกรดเฉลี่ย</div>
+          </div>
+          <div class="divider-v"></div>
+          <div class="stat-item">
+            <div class="stat-num">31</div>
+            <div class="stat-label">หน้าใน Portfolio</div>
+          </div>
+          <div class="divider-v"></div>
+          <div class="stat-item">
+            <div class="stat-num">อันดับ 1</div>
+            <div class="stat-label">เกียรตินิยม</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -334,7 +367,8 @@
     </div>
   </div>
 </section>
-  <!-- PORTFOLIO PDF -->
+
+<!-- PORTFOLIO PDF -->
 <section id="portfolio">
   <div class="section-inner">
     <p class="section-label">เอกสารประกอบ</p>
@@ -383,7 +417,7 @@
       <div class="skill-card">
         <div class="skill-icon">💻</div>
         <div class="skill-name">การเขียนโปรแกรม</div>
-        <div class="skill-desc">พัฒนาซอฟต์แวร์ ควบคุม Microcontroller</div>
+        <div class="skill-desc">พัฒนาซอฟต์แวร์ ควบคุม Microcontroller และระบบอัตโนมัติ</div>
       </div>
       <div class="skill-card">
         <div class="skill-icon">🏆</div>
@@ -393,8 +427,11 @@
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2568 <strong> PEELAPHAT KAEWKONG </strong>ELECTRONIC</p>
+  <p>© 2568 <strong>PEELAPHAT KAEWKONG</strong> · ครุศาสตร์อุตสาหกรรมบัณฑิต อิเล็กทรอนิกส์และโทรคมนาคม · ราชมงคลศรีวิชัย สงขลา</p>
 </footer>
+
 </body>
 </html>
