@@ -58,7 +58,7 @@
     .hero {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      padding: 5rem 2rem 3rem;
+      padding: 6rem 4rem 4rem;
       position: relative; overflow: hidden;
     }
     .hero-bg {
@@ -69,7 +69,7 @@
     }
     .hero-inner {
       position: relative; z-index: 1;
-      max-width: 720px; width: 100%;
+      max-width: 1080px; width: 100%;
       display: flex; flex-direction: column; gap: 2rem;
     }
     .hero-tag {
@@ -93,8 +93,8 @@
     h1 span { color: var(--teal); }
 
     .hero-desc {
-      font-size: 17px; color: var(--muted); line-height: 1.8;
-      max-width: 560px;
+      font-size: 17px; color: var(--muted); line-height: 1.9;
+      max-width: 680px;
       animation: fadeUp 0.6s 0.2s ease both;
     }
 
@@ -237,25 +237,30 @@
 
     /* ── PROFILE PHOTO ── */
     .hero-layout {
-      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 5rem;
+      align-items: center;
     }
     .hero-photo-wrap {
       flex-shrink: 0;
       animation: fadeUp 0.6s ease both;
     }
     .hero-photo {
-      width: 144px; height: 192px;
+      width: 190px; height: 254px;
       object-fit: cover; object-position: center top;
-      border-radius: 10px;
-      border: 3px solid var(--teal-light);
-      box-shadow: 0 8px 32px rgba(29,158,117,0.18);
+      border-radius: 12px;
+      border: 4px solid var(--teal-light);
+      box-shadow: 0 12px 40px rgba(29,158,117,0.20);
       display: block;
     }
     .hero-photo-label {
-      text-align: center; margin-top: 8px;
+      text-align: center; margin-top: 10px;
       font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
     }
-    .hero-text { flex: 1; min-width: 260px; }
+    .hero-text {
+      display: flex; flex-direction: column; gap: 1.8rem;
+    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -264,14 +269,26 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero { padding: 5rem 2rem 3rem; }
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        justify-items: center;
+        text-align: center;
+      }
+      .hero-tag { margin: 0 auto; }
+      .stats { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-desc { max-width: 100%; }
+    }
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       h1 { font-size: 2rem; }
       .stats { gap: 1rem; }
       .divider-v { display: none; }
-      .hero-layout { flex-direction: column; gap: 1.5rem; }
-      .hero-photo { width: 120px; height: 160px; }
+      .hero-photo { width: 140px; height: 186px; }
     }
   </style>
 </head>
@@ -294,14 +311,14 @@
     <div class="hero-layout">
       <div class="hero-photo-wrap">
         <img src="P.jpg" alt="พีลพัทร์ แก้วคง" class="hero-photo" />
-        <p class="hero-photo-label">ชุดครุยวิทยฐานะ</p>
+        <p class="hero-photo-label"> </p>
       </div>
       <div class="hero-text">
         <div class="hero-tag">
           <span class="dot"></span>
           เอกสารประกอบการสัมภาษณ์
         </div>
-        <h1 style="margin-top:1rem;">พีลพัทร์<br/><span>แก้วคง</span></h1>
+        <h1>พีลพัทร์<br/><span>แก้วคง</span></h1>
         <p class="hero-desc">
           ครุศาสตร์อุตสาหกรรมบัณฑิต ไฟฟ้า-อิเล็กทรอนิกส์และโทรคมนาคม จบการศึกษาด้วยเกรดเฉลี่ย <strong>3.91 (เกียรตินิยมอันดับ 1)</strong><br/>
           มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย วิทยาเขตสงขลา
