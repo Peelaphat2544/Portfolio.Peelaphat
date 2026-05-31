@@ -284,6 +284,44 @@
     }
     .pdf-fallback p { color: var(--muted); margin-bottom: 1rem; }
 
+    /* ── ACTIVITIES GALLERY ── */
+    #activities { background: var(--bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
+      border-color: var(--primary);
+      z-index: 2;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 1.5rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-title { color: #fff; font-size: 14px; font-weight: 500; }
+
     /* ── SKILLS ── */
     #skills { background: var(--bg); }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
@@ -393,6 +431,7 @@
     <a href="#experience">ประสบการณ์</a>
     <a href="#education">การศึกษา</a>
     <a href="#awards">รางวัล</a>
+    <a href="#activities">กิจกรรม</a>
     <a href="#portfolio">พอร์ตโฟลิโอ</a>
     <a href="#skills">ทักษะ</a>
   </div>
@@ -625,7 +664,116 @@
           <p>การใช้งาน AI และการเขียน Prompt พื้นฐานเพื่อการทำงาน</p>
           <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities" style="background: var(--surface);">
+  <div class="section-inner">
+    <p class="section-label">ภาพความประทับใจ</p>
+    <h2 class="section-title">กิจกรรมและผลงาน</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="IMG20240507154539.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">กิจกรรมโครงการวิชาการ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_20251018_200834.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">งานแสดงผลงานนวัตกรรม</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_20251018_201054.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การนำเสนอโปรเจกต์</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG20260216094412_01.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">ภาพถ่ายคณะครูและบุคลากร</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1770203136791.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">กิจกรรมอบรมสัมมนา</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1770203142637.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">ทีมพัฒนาแอปพลิเคชัน</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1764712841802.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การทดสอบระบบ Moto IoT</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1718113327120.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">กิจกรรมชมรมผู้ประกอบการ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1756690743939.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การอบรมเชิงปฏิบัติการ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1757599471516.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">งานสัปดาห์วิทยาศาสตร์</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1758959174293.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">ภาพบรรยากาศการเรียน</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1761346687848.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">โครงการพัฒนานวัตกรรม</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1761568048819.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การแข่งขันทักษะวิชาชีพ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1764712829252.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">งานสาธิตสิ่งประดิษฐ์</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1772248053878.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">กิจกรรมแนะแนวการศึกษา</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1702043914863.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">พิธีรับรางวัล</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1689853021140.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การอบรมพัฒนาทักษะ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1705143913996.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">งานวันครู</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1707408113437.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การแข่งขันวิชาการ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1708532588520.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">ภาพกิจกรรมในสถานศึกษา</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1761351153665.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">การนำเสนอผลงานสิ่งประดิษฐ์</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1770203147479.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">ทีมงานและเพื่อนร่วมงาน</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1702043914863.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">รางวัลเกียรติยศ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1757599483231.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">บรรยากาศงานวิชาการ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1718113327120.jpg" alt="กิจกรรม">
+        <div class="gallery-overlay"><span class="gallery-title">กิจกรรมกลุ่มสัมพันธ์</span></div>
+      </div>
     </div>
   </div>
 </section>
