@@ -210,16 +210,27 @@
     .timeline-sub { font-size: 15px; font-weight: 500; color: var(--muted); margin-bottom: 12px; }
     .timeline-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
-    /* ── AWARDS ── */
-    #awards { background: var(--bg); }
+    /* ── TECH BACKGROUND ── */
+    #tech-canvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none; opacity: 0.4;
+    }
+
+    /* ── AWARDS INTERACTIVE ── */
+    #awards { background: transparent; position: relative; }
     .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .award-card {
       background: var(--surface); border-radius: 16px; padding: 2.5rem;
       border: 1px solid var(--border);
       display: flex; flex-direction: column; gap: 1.5rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none; color: inherit;
     }
-    .award-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--primary-light); }
+    .award-card:hover { 
+      transform: translateY(-10px); 
+      box-shadow: 0 20px 40px rgba(0, 102, 255, 0.12); 
+      border-color: var(--primary); 
+    }
     .award-icon {
       font-size: 32px; width: 64px; height: 64px;
       background: var(--primary-light); color: var(--primary);
@@ -228,6 +239,12 @@
     }
     .award-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .award-info p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .award-link-hint {
+      margin-top: auto; font-size: 12px; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .award-card:hover .award-link-hint { opacity: 1; }
 
     /* ── PDF VIEWER ── */
     #portfolio { background: var(--surface); }
@@ -380,6 +397,9 @@
     <a href="#skills">ทักษะ</a>
   </div>
 </nav>
+
+<!-- TECH BACKGROUND CANVAS -->
+<canvas id="tech-canvas"></canvas>
 
 <!-- HERO -->
 <section class="hero">
@@ -542,62 +562,70 @@
     <p class="section-label">ความภาคภูมิใจ</p>
     <h2 class="section-title">รางวัลและผลงานเด่น</h2>
     <div class="awards-grid">
-      <div class="award-card">
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">1</div>
         <div class="award-info">
           <h3>รางวัลชนะเลิศ Moto IoT</h3>
           <p>การประกวดสิ่งประดิษฐ์คนรุ่นใหม่ ระดับอาชีวศึกษา (ระดับภาคและระดับจังหวัด) พ.ศ. 2562 - 2563</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">2</div>
         <div class="award-info">
           <h3>รางวัลชนะเลิศ แอปพลิเคชันควบคุมเตียงไฟฟ้า</h3>
           <p>โครงการพัฒนาผลิตภัณฑ์ต้นแบบสู่เชิงพาณิชย์ สำหรับผู้ป่วยติดเตียง</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">3</div>
         <div class="award-info">
           <h3>คนดีราชมงคลศรีวิชัย ด้านวิชาการ</h3>
           <p>ได้รับการเชิดชูเกียรติเป็นนักศึกษาผลการเรียนดี ประจำปี 2566</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">4</div>
         <div class="award-info">
           <h3>วุฒิบัตร From Gen Z To Be CEO</h3>
           <p>โครงการสร้างผู้ประกอบการรุ่นใหม่ โดยสถาบัน NEA ประจำปี 2023</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">5</div>
         <div class="award-info">
           <h3>เกียรติบัตรคุรุสภา</h3>
           <p>การวิจัยแก้ปัญหาและพัฒนาการศึกษา และการปฏิรูปโรงเรียน พ.ศ. 2568</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">6</div>
         <div class="award-info">
           <h3>ทักษะดิจิทัลและนวัตกรรม</h3>
           <p>Microsoft PowerBI, Microsoft Word และ Digital Literacy (ICDL)</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">7</div>
         <div class="award-info">
           <h3>ด้านการเงินและการลงทุน</h3>
           <p>วุฒิบัตรการวางแผนการเงินและการลงทุน จากตลาดหลักทรัพย์แห่งประเทศไทย (SET)</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
-      <div class="award-card">
+      </a>
+      <a href="https://github.com/Peelaphat2544" target="_blank" class="award-card">
         <div class="award-icon">8</div>
         <div class="award-info">
           <h3>Claude 101 & AI Prompting</h3>
           <p>การใช้งาน AI และการเขียน Prompt พื้นฐานเพื่อการทำงาน</p>
+          <div class="award-link-hint">คลิกเพื่อดูรายละเอียด</div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -666,6 +694,79 @@
 <footer>
   <p>© 2568 <strong>PEELAPHAT KAEWKONG</strong> · ครุศาสตร์อุตสาหกรรมบัณฑิต อิเล็กทรอนิกส์และโทรคมนาคม · ราชมงคลศรีวิชัย สงขลา</p>
 </footer>
+
+<script>
+  // ── TECH PARTICLE ANIMATION ──
+  const canvas = document.getElementById('tech-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 1.5;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#0066FF';
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particles = [];
+    const count = Math.min(window.innerWidth / 10, 100);
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+  init();
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    // Draw lines
+    ctx.strokeStyle = 'rgba(0, 102, 255, 0.1)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
 
 </body>
 </html>
